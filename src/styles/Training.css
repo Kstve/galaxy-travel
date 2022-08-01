@@ -1,0 +1,62 @@
+.training {
+  width: 100%;
+  margin: 3rem 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  height: 100%;
+}
+
+.training .left {
+  text-align: center;
+  margin: auto;
+  padding: 1rem 4rem;
+  max-width: 600px;
+}
+
+.training .left p {
+  margin: 1.2rem 0;
+}
+
+.training .right {
+  width: 100%;
+}
+
+.training .image-container {
+  display: grid;
+  grid-template-columns: repeat(
+    12,
+    1fr
+  ); /*azért 12 mert a 12 oszlopból mennyivel akarom elfoglalni a fentit és mennyivel  a lentit, ezt majd később*/
+  position: relative;
+  align-items: center;
+  text-align: center;
+}
+
+.right .img {
+  max-width: 60%;
+  border: 1px solid #333;
+}
+
+.right .top {
+  grid-column: 1 / span 8;
+  /*az első oszloptól tartson a 8.ig oszlopig, a span miatt lesz egy kis kihagyás az 1 és 8 között*/
+  grid-row: 1; /*1 sort foglal el*/
+  padding-top: 20%;
+  z-index: 6; /*ez a kép lesz térben feljebb*/
+}
+
+.right .bottom {
+  grid-column: 4 / -1; /*alatta lesz a top-képnek*/
+  grid-row: 1;
+  z-index: 5;
+}
+
+@media (max-width: 800px) {
+  .training {
+    grid-template-columns: 1fr;
+  }
+
+  .training .img {
+    max-width: 80%;
+  }
+}
